@@ -161,3 +161,15 @@ fieldset[disabled] .btn {
 
 /* Your CSS */
 /*          */
+
+.animation-content .explanation span {
+    font-size: 16px;
+    font-family: monospace;
+    color: #294270;
+    font-weight: bold;
+}
+
+.animation-content .explanation span.whitespace {
+    display: inline-block;
+    width: 10px;
+}

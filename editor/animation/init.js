@@ -65,25 +65,22 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
             $content.find('.output').html('&nbsp;Your result:&nbsp;' + JSON.stringify(userResult));
 
             if (!result) {
-                $content.find('.call').html('Fail: checkio(' + JSON.stringify(checkioInput) + ')');
+                $content.find('.call').html('Fail: checkio(' + JSON.stringify(checkioInput[0]) + "," + JSON.stringify(checkioInput[1]) + ')');
                 $content.find('.answer').html('Right result:&nbsp;' + JSON.stringify(rightResult));
                 $content.find('.answer').addClass('error');
                 $content.find('.output').addClass('error');
                 $content.find('.call').addClass('error');
             }
             else {
-                $content.find('.call').html('Pass: checkio(' + JSON.stringify(checkioInput) + ')');
+                $content.find('.call').html('Pass: checkio(' + JSON.stringify(checkioInput[0]) + "," + JSON.stringify(checkioInput[1]) + ')');
                 $content.find('.answer').remove();
             }
             //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            var explanationDiv = new HWdiv();
+            explanationDiv.prepare($content.find(".explanation"), checkioInput[0]);
+            setTimeout(function() {explanationDiv.cut(1000)}, 200);
+            setTimeout(function() {explanationDiv.paint(rightResult)}, 1200);
 
 
             this_e.setAnimationHeight($content.height() + 60);
@@ -106,26 +103,84 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
 //            });
 //        });
 
-        var colorOrange4 = "#F0801A";
-        var colorOrange3 = "#FA8F00";
-        var colorOrange2 = "#FAA600";
-        var colorOrange1 = "#FABA00";
 
-        var colorBlue4 = "#294270";
-        var colorBlue3 = "#006CA9";
-        var colorBlue2 = "#65A1CF";
-        var colorBlue1 = "#8FC7ED";
+        function HWdiv(options) {
+            var colorOrange4 = "#F0801A";
+            var colorOrange3 = "#FA8F00";
+            var colorOrange2 = "#FAA600";
+            var colorOrange1 = "#FABA00";
 
-        var colorGrey4 = "#737370";
-        var colorGrey3 = "#9D9E9E";
-        var colorGrey2 = "#C5C6C6";
-        var colorGrey1 = "#EBEDED";
+            var colorBlue4 = "#294270";
+            var colorBlue3 = "#006CA9";
+            var colorBlue2 = "#65A1CF";
+            var colorBlue1 = "#8FC7ED";
 
-        var colorWhite = "#FFFFFF";
-        //Your Additional functions or objects inside scope
-        //
-        //
-        //
+            var colorGrey4 = "#737370";
+            var colorGrey3 = "#9D9E9E";
+            var colorGrey2 = "#C5C6C6";
+            var colorGrey1 = "#EBEDED";
+
+            var colorWhite = "#FFFFFF";
+
+            options = options || {};
+            var $dom;
+
+            this.prepare = function(dom, text) {
+                $dom = dom;
+                var row = 1;
+                var col = 1;
+                for (var i = 0; i < text.length; i++) {
+                    var letter = text[i];
+                    var s = $("<span></span>");
+                    if (letter === "\n") {
+                        $dom.append("<br>");
+                        row += 1;
+                        col = 1;
+                        continue;
+                    }
+                    else if (letter === " ") {
+                        s.addClass("whitespace")
+
+                    }
+                    else {
+                        s.addClass("row" + row + " col" + col);
+                        col++;
+                    }
+                    s.html(letter);
+                    $dom.append(s);
+                }
+            };
+
+            this.cut = function(delay) {
+                $dom.find(".whitespace").animate({width: 0}, delay);
+            };
+
+            this.paint = function(coordinates) {
+                $dom.find(".col1").animate({"color": colorOrange4}, 'fast');
+                if (coordinates[0] == coordinates[2]) {
+                    var row = $dom.find("span.row" + coordinates[0]).toArray();
+                    for (var i = coordinates[1]; i <= coordinates[3]; i++) {
+                        setTimeout((function(index){
+                            return function() {
+                                $(row[index]).css("color", colorOrange4);
+                            }
+                        })(i-1), (i - coordinates[1]) * 300);
+                    }
+                }
+                else if (coordinates[1] == coordinates[3]) {
+                    var col = $dom.find("span.col" + coordinates[1]).toArray();
+                    for (i = coordinates[0]; i <= coordinates[2]; i++) {
+                        setTimeout((function(index){
+                            return function() {
+                                $(col[index]).css("color", colorOrange4);
+                            }
+                        })(i-1), (i - coordinates[0]) * 300);
+                    }
+                }
+
+            }
+
+        }
 
 
     }

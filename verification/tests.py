@@ -14,7 +14,7 @@ TESTS = {
             "input": ["""DREAMING of apples on a wall,
 And dreaming often, dear,
 I dreamed that, if I counted all,
--How many would appear?""", u"ten"],
+-How many would appear?""", "ten"],
             "answer": [2, 14, 2, 16],
         },
         {
@@ -34,7 +34,7 @@ And burbled as it came!""", "noir"],
             "input": ["""DREAMING of apples on a wall,
 And dreaming often, dear,
 I dreamed that, if I counted all,
--How many would appear?""", u"ten"],
+-How many would appear?""", "ten"],
             "answer": [2, 14, 2, 16],
         },
     ]

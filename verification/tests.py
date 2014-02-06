@@ -68,6 +68,12 @@ All the King's horses and all the King's men
 Couldn't put Humpty Dumpty in his place again.""", "oast"],
             "answer": [1, 16, 4, 16],
         },
+        {
+            "input": ["""xa
+xb
+x""", "ab"],
+            "answer": [1, 1, 2, 1],
+        },
 
 
     ]

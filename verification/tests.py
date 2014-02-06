@@ -72,7 +72,7 @@ Couldn't put Humpty Dumpty in his place again.""", "oast"],
             "input": ["""xa
 xb
 x""", "ab"],
-            "answer": [1, 1, 2, 1],
+            "answer": [1, 2, 2, 2],
         },
 
 

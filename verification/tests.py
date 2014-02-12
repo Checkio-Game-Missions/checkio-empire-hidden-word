@@ -73,7 +73,7 @@ Couldn't put Humpty Dumpty in his place again.""", "oast"],
 And all goodbye!
 Of course goodbye.
 or not""", "haoo"],
-            "answer": [1, 1, 1, 4],
+            "answer": [1, 1, 4, 1],
         },
         {
             "input": ["""xa

@@ -69,6 +69,13 @@ Couldn't put Humpty Dumpty in his place again.""", "oast"],
             "answer": [1, 16, 4, 16],
         },
         {
+            "input": ["""Hi all!
+And all goodbye!
+Of course goodbye.
+or not""", "haoo"],
+            "answer": [1, 1, 1, 4],
+        },
+        {
             "input": ["""xa
 xb
 x""", "ab"],

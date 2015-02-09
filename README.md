@@ -1,4 +1,4 @@
-checkio-task-hidden-word
+hidden-word
 ========================
 
-Checkio Task "The Hidden Word"
+Crystal Farm 3.5 "The Hidden Word"

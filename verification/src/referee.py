@@ -8,9 +8,9 @@ from tests import TESTS
 
 class Referee(RefereeBase):
     TESTS = TESTS
-    EXECUTABLE_PATH = settings.EXECUTABLE_PATH
-    CURRENT_ENV = settings_env.CURRENT_ENV
-    FUNCTION_NAME = "find_word"
+    ENVIRONMENTS = settings_env.ENVIRONMENTS
+
+    DEFAULT_FUNCTION_NAME = "find_word"
     ENV_COVERCODE = {
         "python_2": covercodes.py_2_str,
         "python_3": None,

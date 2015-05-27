@@ -1,5 +1,5 @@
 from checkio_referee import RefereeBase
-from checkio_referee import covercodes
+from checkio_referee import covercodes, representations
 
 
 import settings_env
@@ -12,7 +12,9 @@ class Referee(RefereeBase):
 
     DEFAULT_FUNCTION_NAME = "find_word"
     ENV_COVERCODE = {
-        "python_2": covercodes.py_2_str,
-        "python_3": None,
+        "python_3": covercodes.py_unwrap_args,
         "javascript": None
+    }
+    CALLED_REPRESENTATIONS = {
+        "python_3": representations.unwrap_arg_representation,
     }

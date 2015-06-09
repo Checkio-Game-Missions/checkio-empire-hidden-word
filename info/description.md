@@ -11,6 +11,3 @@ The result must be represented as a list -- **[row_start,column_start,row_end,co
 - **row_end** is the line number for the last letter of the word.
 - **column_end** is the line number for the last letter of the word.
 - Counting of the rows and columns start from 1.
-
-
-![Rhymes](rhymes.svg)

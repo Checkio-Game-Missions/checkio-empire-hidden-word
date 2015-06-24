@@ -1,0 +1,27 @@
+"use strict";
+
+
+function findWord(text, word) {
+    return [1, 1, 1, 4];
+}
+
+var assert = require('assert');
+
+if (!global.is_checking) {
+    // These "asserts" using only for self-checking and not necessary for auto-testing
+    assert.deepEqual(findWord(
+        "DREAMING of apples on a wall,\n" +
+        "And dreaming often, dear,\n" +
+        "I dreamed that, if I counted all,\n" +
+        "-How many would appear?", "ten"), [2, 14, 2, 16], "Where's ten?");
+
+    assert.deepEqual(findWord(
+        "He took his vorpal sword in hand:\n" +
+        "Long time the manxome foe he sought--\n" +
+        "So rested he by the Tumtum tree,\n" +
+        "And stood awhile in thought.\n" +
+        "And as in uffish thought he stood,\n" +
+        "The Jabberwock, with eyes of flame,\n" +
+        "Came whiffling through the tulgey wood,\n" +
+        "And burbled as it came!\n", "noir"), [4, 16, 7, 16], "Noir");
+}

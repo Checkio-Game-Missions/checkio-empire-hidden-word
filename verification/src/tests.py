@@ -1,5 +1,5 @@
 TESTS = {
-    "Level_1": [
+    "Rank_01": [
         {
             "input": ["""DREAMING of apples on a wall,
 And dreaming often, dear,
@@ -17,9 +17,7 @@ The Jabberwock, with eyes of flame,
 Came whiffling through the tulgey wood,
 And burbled as it came!""", "noir"],
             "answer": [4, 16, 7, 16],
-        }
-    ],
-    "Extra": [
+        },
         {
             "input": ["""Twas brillig, and the slithy toves
 Did gyre and gimble in the wabe;

@@ -24,4 +24,5 @@ if (!global.is_checking) {
         "The Jabberwock, with eyes of flame,\n" +
         "Came whiffling through the tulgey wood,\n" +
         "And burbled as it came!\n", "noir"), [4, 16, 7, 16], "Noir");
+    console.log("All done? Earn rewards by using the 'Check' button!");
 }
